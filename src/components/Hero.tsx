@@ -1,83 +1,87 @@
 import { useEffect, useState } from "react";
-import heroImage from "@/assets/hero-ensemble.jpg";
+import heroImage from "@/assets/hero-ensemble.png";
+import heroLogo from "@/assets/Logo-Gimenes-Produções.png";
 import { Button } from "@/components/ui/button";
-import { Music, Calendar, ArrowDown, Play } from "lucide-react";
+import { Calendar, Play, Award, Users, Star } from "lucide-react";
+
+const stats = [
+  { icon: Award, value: "200+", label: "Eventos Realizados" },
+  { icon: Users, value: "20+", label: "Músicas no Repertório" },
+  { icon: Star, value: "10+", label: "Anos de Experiência" },
+];
 
 const Hero = () => {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with Modern Overlay */}
-      <div className="absolute inset-0">
-        <img 
-          src={heroImage} 
-          alt="Músicos da Gimenes Produções em apresentação elegante" 
-          className="w-full h-full object-cover" 
+    <section
+      id="home"
+      className="relative min-h-screen flex flex-col items-center justify-between w-full overflow-hidden bg-black text-white"
+      style={{ padding: 0 }}
+    >
+      {/* Fundo */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={heroImage}
+          alt="Músicos da Gimenes Produções"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/90 via-secondary/80 to-primary/70"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-accent/90 via-secondary/80 to-primary/70 mix-blend-soft-light" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
+        <div className="absolute inset-0 opacity-5 mix-blend-overlay animate-grain" />
       </div>
 
-      {/* Floating Elements */}
-      <div className="absolute top-1/4 left-1/4 animate-float opacity-20">
-        <Music className="h-16 w-16 text-primary-glow" />
-      </div>
-      <div className="absolute top-1/3 right-1/4 animate-float opacity-20" style={{
-        animationDelay: '1s'
-      }}>
-        <Music className="h-12 w-12 text-primary-glow" />
-      </div>
+      {/* Conteúdo */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center justify-center flex-grow pt-8 pb-2 px-2">
+        {/* Logo centralizada */}
+        <img
+          src={heroLogo}
+          alt="Gimenes Produções"
+          className="h-40 md:h-52 mx-auto opacity-95 drop-shadow-lg"
+          style={{ marginBottom: "1.8rem" }}
+        />
 
-      {/* Hero Content */}
-      <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4">
-        <div className={`transition-all duration-1000 ${mounted ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <h1 className="font-playfair font-bold text-6xl md:text-8xl lg:text-9xl mb-8 leading-none">
-            <span className="block">A trilha sonora que</span>
-            <span className="text-primary-glow block animate-glow">transforma seu momento</span>
+        {/* Título e descrição */}
+        <div className="max-w-3xl text-center mb-2">
+          <h1 className="text-4xl md:text-5xl font-playfair font-bold leading-tight mb-2">
+            A trilha sonora que transforma seu momento especial
           </h1>
-          <p className="font-inter text-xl md:text-2xl lg:text-3xl mb-12 text-gray-200 max-w-4xl mx-auto leading-relaxed">
-            Gimenes Produções leva emoção e sofisticação para o seu evento com coral, orquestra e músicos especializados
+          <p className="text-base md:text-lg text-gray-300 font-light leading-relaxed">
+            Gimenes Produções leva emoção e sofisticação para seu evento com coral, orquestra e músicos especializados criando experiências inesquecíveis.
           </p>
         </div>
 
-        <div className={`flex flex-col sm:flex-row gap-6 justify-center items-center transition-all duration-1000 delay-300 ${mounted ? 'animate-scale-in' : 'opacity-0'}`}>
-          <Button variant="default" size="lg" className="gradient-primary shadow-elegant hover-modern font-inter font-medium text-lg px-8 py-4">
-            <Calendar className="mr-3 h-6 w-6" />
-            Pedir Orçamento
-          </Button>
-          <Button variant="outline" size="lg" className="border-white/30 text-white font-inter font-medium text-lg px-8 py-4 transition-elegant backdrop-blur-sm bg-white/10 hover:bg-white/20">
-            <Play className="mr-3 h-6 w-6" />
-            Ouvir Repertório
-          </Button>
+        {/* Cards centralizados */}
+        <div className="w-full max-w-4xl grid grid-cols-1 sm:grid-cols-3 gap-5 mt-5 mb-1">
+          {stats.map(({ icon: Icon, value, label }) => (
+            <div
+              key={label}
+              className="bg-black bg-opacity-60 border border-gray-700 rounded-xl p-5 flex flex-col items-center text-center text-white shadow-md backdrop-blur-sm hover:bg-opacity-70 hover:scale-105 transition-transform"
+            >
+              <Icon className="text-yellow-400 mb-2 h-8 w-8" />
+              <div className="text-2xl font-extrabold font-playfair mb-1">{value}</div>
+              <div className="uppercase tracking-widest text-xs text-gray-400">{label}</div>
+            </div>
+          ))}
         </div>
 
-        {/* Modern Stats */}
-        <div className={`mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto transition-all duration-1000 delay-500 ${mounted ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-playfair font-bold text-primary-glow mb-2">200+</div>
-            <div className="text-sm font-inter text-gray-300">Eventos Realizados</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-playfair font-bold text-primary-glow mb-2">15+</div>
-            <div className="text-sm font-inter text-gray-300">Músicos Especialistas</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-playfair font-bold text-primary-glow mb-2">10+</div>
-            <div className="text-sm font-inter text-gray-300">Anos de Experiência</div>
-          </div>
+        {/* Botões CTA abaixo dos cards */}
+        <div className="flex gap-5 justify-center mt-4">
+          <Button size="lg" className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black shadow-lg hover:from-yellow-500 hover:to-yellow-700 py-3 px-6">
+            <Calendar className="mr-2" /> Pedir Orçamento
+          </Button>
+          <Button size="lg" variant="outline" className="border-white text-white border hover:bg-white hover:text-black transition-colors py-3 px-6">
+            <Play className="mr-2" /> Ouvir Repertório
+          </Button>
         </div>
+      </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="flex flex-col items-center space-y-2">
-            <span className="text-white/70 text-sm font-inter">Role para descobrir</span>
-            <ArrowDown className="h-6 w-6 text-white/70" />
-          </div>
+      {/* Indicador de scroll */}
+      <div className="relative z-10 w-full flex flex-col items-center mb-6">
+        <span className="text-xs uppercase tracking-widest text-white/70 mb-1">Descubra</span>
+        <div className="animate-bounce">
+          <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-white/70">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
         </div>
       </div>
     </section>
