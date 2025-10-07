@@ -8,7 +8,7 @@ interface SpotifyPlayerProps {
 }
 
 const SpotifyPlayer = ({ 
-  playlistId = "37i9dQZF1DX7K31D69s4M1", // Default classical playlist
+  playlistId = "0hv0yTjSYSJ9Bvf81vqlDw", // Default classical playlist
   className = "" 
 }: SpotifyPlayerProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
