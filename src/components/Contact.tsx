@@ -7,7 +7,7 @@ const Contact = () => {
     {
       name: "WhatsApp",
       icon: MessageSquare,
-      href: "https://wa.me/5511999999999",
+      href: "https://wa.me/5511965515484",
       color: "hover:text-green-400",
       description: "Fale conosco diretamente"
     },
@@ -38,7 +38,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Telefone",
-      info: "(11) 99999-9999",
+      info: "(11) 96551-5484",
       description: "Ligações e WhatsApp"
     },
     {

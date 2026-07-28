@@ -2,76 +2,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, MapPin, Clock, Ticket } from "lucide-react";
+import { upcomingEvents, pastEvents } from "@/data/events";
 
 const Events = () => {
-  const upcomingEvents = [
-    {
-      title: "Concerto de Natal Clássico",
-      date: "15 de Dezembro, 2024",
-      time: "20:00",
-      venue: "Teatro Municipal",
-      location: "São Paulo, SP",
-      price: "R$ 80 - R$ 150",
-      description: "Apresentação especial com obras natalinas de Bach, Handel e Corelli",
-      status: "Ingressos Disponíveis",
-      featured: true
-    },
-    {
-      title: "Noite Romântica: Chopin e Liszt",
-      date: "28 de Janeiro, 2025",
-      time: "19:30",
-      venue: "Sala São Paulo",
-      location: "São Paulo, SP", 
-      price: "R$ 60 - R$ 120",
-      description: "Concerto intimista com obras para piano e orquestra de câmara",
-      status: "Pré-venda",
-      featured: false
-    },
-    {
-      title: "Sinfonia nº 9 de Beethoven",
-      date: "14 de Fevereiro, 2025",
-      time: "20:00",
-      venue: "Theatro Municipal do Rio de Janeiro",
-      location: "Rio de Janeiro, RJ",
-      price: "R$ 90 - R$ 200",
-      description: "Apresentação completa da icônica Nona Sinfonia com coro",
-      status: "Em Breve",
-      featured: true
-    },
-    {
-      title: "Primavera Barroca",
-      date: "21 de Março, 2025",
-      time: "18:00",
-      venue: "Igreja do Carmo",
-      location: "Ouro Preto, MG",
-      price: "R$ 40 - R$ 80",
-      description: "Concerto ao ar livre com obras de Vivaldi e Bach",
-      status: "Ingressos Disponíveis",
-      featured: false
-    }
-  ];
-
-  const pastEvents = [
-    {
-      title: "Gala de Abertura 2024",
-      date: "15 de Março, 2024",
-      venue: "Theatro São Pedro",
-      description: "Concerto de abertura da temporada com obras de Mozart e Brahms"
-    },
-    {
-      title: "Festival de Música Clássica",
-      date: "10 de Junho, 2024", 
-      venue: "Centro Cultural",
-      description: "Participação no festival com recital de música de câmara"
-    },
-    {
-      title: "Concerto Beneficente",
-      date: "22 de Agosto, 2024",
-      venue: "Auditório Ibirapuera",
-      description: "Apresentação beneficente para instituições de caridade"
-    }
-  ];
-
   return (
     <section id="events" className="py-32 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4">
@@ -91,6 +24,15 @@ const Events = () => {
             Próximos Concertos
           </h3>
           
+          {upcomingEvents.length === 0 ? (
+            <div className="max-w-xl mx-auto text-center bg-card shadow-soft rounded-2xl p-10 scroll-fade-in">
+              <Calendar className="h-10 w-10 text-primary/50 mx-auto mb-4" />
+              <p className="font-inter text-muted-foreground leading-relaxed">
+                Nenhum concerto agendado no momento. Fale conosco para reservar sua data ou
+                acompanhe nossas redes sociais para ficar por dentro das novidades.
+              </p>
+            </div>
+          ) : (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {upcomingEvents.map((event, index) => (
               <Card 
@@ -157,6 +99,7 @@ const Events = () => {
               </Card>
             ))}
           </div>
+          )}
         </div>
 
         {/* Eventos Passados */}
