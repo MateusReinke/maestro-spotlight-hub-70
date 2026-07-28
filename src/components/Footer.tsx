@@ -11,12 +11,12 @@ const Footer = () => {
             <div className="flex items-center space-x-2 mb-4">
               <Music className="h-8 w-8 text-primary-glow" />
               <span className="font-playfair font-bold text-2xl">
-                Ensemble Clássico
+                Gimenes Produções
               </span>
             </div>
             <p className="font-inter text-accent-foreground/80 leading-relaxed mb-6 max-w-md">
-              Dedicados à apresentação da música clássica de excelência, promovendo a arte erudita 
-              através de concertos memoráveis e educação musical.
+              Levamos emoção e sofisticação para o seu evento com coral, orquestra e músicos
+              especializados em música clássica de excelência.
             </p>
             <div className="flex space-x-4">
               <Button variant="ghost" size="sm" className="p-2 hover:bg-accent-foreground/10">
@@ -64,13 +64,13 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-primary-glow flex-shrink-0" />
                 <span className="font-inter text-sm text-accent-foreground/80">
-                  info@ensembleclassico.com.br
+                  contato@gimenes.com.br
                 </span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-primary-glow flex-shrink-0" />
                 <span className="font-inter text-sm text-accent-foreground/80">
-                  (11) 3456-7890
+                  (11) 99999-9999
                 </span>
               </div>
               <div className="flex items-center space-x-3">
@@ -108,7 +108,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-accent-foreground/20 pt-8 text-center">
           <p className="font-inter text-sm text-accent-foreground/60">
-            © 2024 Ensemble Clássico. Todos os direitos reservados.
+            © 2026 Gimenes Produções. Todos os direitos reservados.
           </p>
           <p className="font-inter text-xs text-accent-foreground/50 mt-2">
             Desenvolvido com paixão pela música clássica
